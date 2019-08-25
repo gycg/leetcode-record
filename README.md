@@ -4,7 +4,7 @@
 
 ## 目录
 
-* [Two Sum](#Two Sum)
+* [Two Sum](#two sum)
 * [Add Two Numbers](#Add Two Numbers)
 
 #### Two Sum
