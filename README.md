@@ -5,11 +5,13 @@
 ## 目录
 
 * [Two Sum](#twosum)
-* [Add Two Numbers](#Add Two Numbers)
+* [Add Two Numbers](#AddTwoNumbers)
+* [Longest Substring Without Repeating Characters](#LongestSubstringWithoutRepeatingCharacters)
+* [Longest Palindromic Substring](#LongestPalindromicSubstring)
 
 #### TwoSum
 
-```C++
+```c++
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -33,9 +35,9 @@ public:
 
 
 
-#### Add Two Numbers
+#### AddTwoNumbers
 
-```C++
+```c++
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -69,7 +71,8 @@ public:
 };
 ```
 
-#### Longest Substring Without Repeating Characters(没有重复的最长子串)
+#### LongestSubstringWithoutRepeatingCharacters
+* 没有重复的最长子串
 
 ```c++
 class Solution {
@@ -90,7 +93,8 @@ public:
 };
 ```
 
-#### Longest Palindromic Substring(最长回文子串)
+#### LongestPalindromicSubstring
+* 最长回文子串
 
 ```c++
 // 从第1位到第n位，以每一位做为中点向左向右扩展，判断最长的回文子串；每两位之间的间隙也可以作为中点，共判断2*n-1次，取最长那个的下标，返回答案。
@@ -429,7 +433,7 @@ public:
 
 ####Coin Change
 
-```C++
+```c++
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
