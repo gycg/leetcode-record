@@ -1,13 +1,13 @@
 
 
-###LeetCode题目记录
+# LeetCode题目记录
 
 ## 目录
 
-* [Two Sum](#two sum)
+* [Two Sum](#twosum)
 * [Add Two Numbers](#Add Two Numbers)
 
-#### Two Sum
+#### TwoSum
 
 ```C++
 class Solution {
