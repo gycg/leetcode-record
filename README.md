@@ -8,6 +8,21 @@
 * [Add Two Numbers](#AddTwoNumbers)
 * [Longest Substring Without Repeating Characters](#LongestSubstringWithoutRepeatingCharacters)
 * [Longest Palindromic Substring](#LongestPalindromicSubstring)
+* [ZigZag Conversion](#ZigZagConversion)
+* [Sort An Array](#SortAnArray)
+* [匹配IP](#匹配IP)
+* [Reverse Integer](#ReverseInteger)
+* [Reverse String](#ReverseString)
+* [两个有序数组的交集](#两个有序数组的交集)
+* [Intersection Of Two Arrays](#IntersectionOfTwoArrays)
+* [Combination Sum](#CombinationSum)
+* [找出和为target的三数组合](#找出和为target的三数组合)
+* [BinaryTree Level Order Traversal](#BinaryTreeLevelOrderTraversal)
+* [二叉树深度](#二叉树深度)
+* [Palindrome Number](#PalindromeNumber)
+* [反转字符串](#反转字符串)
+* [Knight Probability In Chessboard](#KnightProbabilityInChessboard)
+* [Coin Change](#CoinChange)
 
 #### TwoSum
 
@@ -32,7 +47,6 @@ public:
     }
 };
 ```
-
 
 
 #### AddTwoNumbers
@@ -71,6 +85,7 @@ public:
 };
 ```
 
+
 #### LongestSubstringWithoutRepeatingCharacters
 * 没有重复的最长子串
 
@@ -93,6 +108,7 @@ public:
 };
 ```
 
+
 #### LongestPalindromicSubstring
 * 最长回文子串
 
@@ -100,45 +116,47 @@ public:
 // 从第1位到第n位，以每一位做为中点向左向右扩展，判断最长的回文子串；每两位之间的间隙也可以作为中点，共判断2*n-1次，取最长那个的下标，返回答案。
 ```
 
-#### ZigZag Conversion
+
+#### ZigZagConversion
 
 ```c++
 // 定义一个大小为numRows的string vector，利用一个goingDown的flag判断向上还是向下。遍历一次字符串，将字符添加到对应的行，最后将几个string连接返回。
 ```
 
-####快排
+
+#### SortAnArray
+* 快排
 
 ```c++
 # 最好的时间复杂度O(nlgn)，最差O(n^2)。平均O(nlgn)
-#include <iostream>
-#include <vector>
-using namespace std;
+class Solution {
+public:
+    vector<int> sortArray(vector<int>& nums) {
+        quick_sort(nums, 0, nums.size()-1);
+        return nums;
+    }
+    void quick_sort(vector<int>& nums, int left, int right) {
+        if(left > right) return;
+        int i=left, j=right;
+        int pivot = nums[i];
+        while(i < j){
+            while(i < j && pivot <= nums[j]){
+                j--;
+            }
+            nums[i] = nums[j];
+            while(i < j && pivot >= nums[i]){
+                i++;
+            }
+            nums[j] = nums[i];
 
-class quick_sort(vector<int> &arr, int left, int right){
-  if(left >= right)
-    return;
-  int i=left, j=right;
-  int pivot = arr[i];
-  while(i<j){
-    while(i<j && arr[j]>=pivot)
-      j--;
-    arr[i] = arr[j];
-    while(i<j && arr[i]<=pivot)
-      i++;
-    arr[j] = arr[i];
-  }
-  arr[i] = pivot;
-  quick_sort(arr, left, i-1);
-  quick_sort(arr, i+1, right);
-}
-
-int main(){
-    vector<int> a = {1, 2, 3, 7, 6, 5, 9, 8};
-    quick_sort(a, 0, a.size()-1);
-    for(int i=0; i<a.size(); i++)
-        cout << a[i] << endl;
-}
+        }
+        nums[i] = pivot;
+        quick_sort(nums, left, i-1);
+        quick_sort(nums, i+1, right);
+    }
+};
 ```
+
 
 #### 匹配IP
 
@@ -151,7 +169,9 @@ print(pattern.search(str))
 re.findall('[0-9]+(?:\.[0-9]+){3}', s)
 ```
 
-#### Reverse Integer(反转整数)
+
+#### ReverseInteger
+* 反转整数
 
 ```c++
 #include <iostream>
@@ -170,13 +190,15 @@ void reverse_int(int x){
 }
 ```
 
-#### Reverse String
+
+#### ReverseString
 
 ```python
 ' '.join(a.split()[::-1])
 ```
 
-####两个有序数组的交集
+
+#### 两个有序数组的交集
 
 ```c++
 vector<int> intersect(vector<int> arrA, vector<int> arrB){
@@ -221,7 +243,9 @@ vector<int> intersect(vector<int> arrA, vector<int> arrB){
 }
 ```
 
-#### Intersection of Two Arrays(两个数组求交集，hash)
+
+#### IntersectionOfTwoArrays
+* 两个数组求交集(hash)
 
 ```c++
 class Solution {
@@ -247,7 +271,9 @@ public:
 };
 ```
 
-#### Combination Sum(和为target的所有组合)
+
+#### CombinationSum
+* 和为target的所有组合(回溯法)
 
 ```c++
 class Solution {
@@ -273,6 +299,7 @@ public:
     }
 };
 ```
+
 
 #### 找出和为target的三数组合
 
@@ -310,7 +337,9 @@ public:
 };
 ```
 
-####Binary Tree Level Order Traversal(层次遍历)
+
+#### BinaryTreeLevelOrderTraversal
+* 层次遍历
 
 ```c++
 /**
@@ -351,6 +380,7 @@ public:
 };
 ```
 
+
 #### 二叉树深度
 
 ```c++
@@ -362,9 +392,11 @@ int depth(TreeNode* root){
 }
 ```
 
-#### Palindrome Number(回文数字)
 
-```
+#### PalindromeNumber
+* 回文数字
+
+```c++
 class Solution {
 public:
     bool isPalindrome(int x) {
@@ -381,9 +413,10 @@ public:
 };
 ```
 
+
 #### 反转字符串
 
-```
+```c++
 class Solution {
 public:
     void reverseString(vector<char>& s) {
@@ -397,7 +430,9 @@ public:
 };
 ```
 
-####Knight Probability in Chessboard(走棋概率)
+
+#### KnightProbabilityInChessboard
+* 走棋概率
 
 ```c++
 class Solution {
@@ -431,7 +466,7 @@ public:
 };
 ```
 
-####Coin Change
+#### CoinChange
 
 ```c++
 class Solution {
@@ -451,6 +486,7 @@ public:
     }
 };
 ```
+
 
 #### Intersection of Two Arrays
 
